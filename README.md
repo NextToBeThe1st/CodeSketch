@@ -19,21 +19,21 @@
 CodeSketch
 ├─BOJ
 │  ├─1000. A+B
-│  │      bin_main.cpp.txt
-│  │      chan_main.cpp.txt
-│  │      so_main.cpp.txt
-│  │      woo_main.cpp.txt
+│  │      bin_main.cpp
+│  │      chan_main.cpp
+│  │      so_main.cpp
+│  │      woo_main.cpp
 │  │
 │  └─1012. 유기농 배추
-│          bin_main.cpp.txt
-│          chan_main.cpp.txt
-│          so_main.cpp.txt
-│          woo_main.cpp.txt
+│          bin_main.cpp
+│          chan_main.cpp
+│          so_main.cpp
+│          woo_main.cpp
 │
 └─Programmers
     └─lv1_택배상자꺼내기
-            so_main.cpp.txt
-            woo_main.cpp.txt
+            so_main.cpp
+            woo_main.cpp
 
 ```
 
