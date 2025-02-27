@@ -1,6 +1,14 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=5000&color=0067D7&width=435&lines=%F0%9F%A7%91%E2%80%8D%F0%9F%8E%A8Welcome+to+Code+Sketch!)](https://git.io/typing-svg)
----
+# 🖍️ Solved Problems
+
 <br>
 
+<<<<<<< HEAD
 ## 🖼️알고리즘
 
+=======
+| 유형 | 난이도 | <b>문제 | 윤정빈 | 이소영 | 이승찬 | 조영우</b> |
+| --- | --- | --- | --- | --- | --- | --- |
+| 구현 | GOLD 5 | 로봇청소기 | ✔️ | ❌ | ❌ | ❌ |
+| --- | --- | 2/28 open | ❌ | ❌ | ❌ | ❌ |
+| --- | --- | 3/4 open | ❌ | ❌ | ❌ | ❌ |
+>>>>>>> 9c1a7a6dca1d9b1597e52ad65febd4a1c304344d
