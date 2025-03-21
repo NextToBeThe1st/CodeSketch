@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 using namespace std;
-//ÀÌ±â´Â ¹è¿­
+//ì´ê¸°ëŠ” ë°°ì—´
 int win[8][3] = {
     {0,1,2}, {3,4,5}, {6,7,8},
     {0,3,6}, {1,4,7}, {2,5,8},
     {0,4,8}, {2,4,6}
 };
 
-//ÀÌ°å³Ä?? °á°ú°¡ ³µ³Ä?
+//ì´ê²¼ëƒ?? ê²°ê³¼ê°€ ë‚¬ëƒ?
 bool isWin(const string& board, char player) {
     for (int i = 0; i < 8; i++) {
         if (board[win[i][0]] == player &&
@@ -31,29 +31,29 @@ bool isValid(const string& board) {
     bool xWin = isWin(board, 'X');
     bool oWin = isWin(board, 'O');
 
-    // ±âº» Á¶°Ç À§¹İ
+    // ê¸°ë³¸ ì¡°ê±´ ìœ„ë°˜
     if (oCount > xCount || xCount - oCount > 1) return false;
 
-    // µÑ ´Ù ½Â¸®? ºÒ°¡´É
+    // ë‘˜ ë‹¤ ìŠ¹ë¦¬? ë¶ˆê°€ëŠ¥
     if (xWin && oWin) return false;
 
-    // X°¡ ÀÌ°å´Ù¸é X°¡ ÇÑ ¼ö ´õ ¸¹¾Æ¾ß ÇÔ
+    // Xê°€ ì´ê²¼ë‹¤ë©´ Xê°€ í•œ ìˆ˜ ë” ë§ì•„ì•¼ í•¨
     if (xWin && xCount != oCount + 1) return false;
 
-    // O°¡ ÀÌ°å´Ù¸é X, O ¼ö °°¾Æ¾ß ÇÔ
+    // Oê°€ ì´ê²¼ë‹¤ë©´ X, O ìˆ˜ ê°™ì•„ì•¼ í•¨
 <<<<<<< Updated upstream
     if (oWin && xCount != oCount) return false;
 =======
     if (oWin && xCount != oCount) return false; //..
 >>>>>>> Stashed changes
 
-    // ½Â¸® ¾ø°í, 9Ä­ ´Ù Âù °æ¿ì´Â ¹«½ÂºÎ
+    // ìŠ¹ë¦¬ ì—†ê³ , 9ì¹¸ ë‹¤ ì°¬ ê²½ìš°ëŠ” ë¬´ìŠ¹ë¶€
     if (!xWin && !oWin && xCount + oCount == 9) return true;
 
-    // ½Â¸® Á¶°Ç¿¡ ¸Â´Â °æ¿ì
+    // ìŠ¹ë¦¬ ì¡°ê±´ì— ë§ëŠ” ê²½ìš°
     if (xWin || oWin) return true;
 
-    // °ÔÀÓÀÌ ¾ÆÁ÷ ¾È ³¡³µ´Âµ¥ ÀÔ·ÂµÈ °æ¿ì
+    // ê²Œì„ì´ ì•„ì§ ì•ˆ ëë‚¬ëŠ”ë° ì…ë ¥ëœ ê²½ìš°
     return false;
 }
 
