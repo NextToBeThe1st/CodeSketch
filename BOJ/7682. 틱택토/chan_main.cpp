@@ -78,7 +78,7 @@ int Check_Line(char player) {
 	return 0; 
 }
 
-int X_O_Rule_Valid() {
+int X_O_Rule_inValid() {
 	
 	if (Check_Line('O') && (Count_Num('O') != Count_Num('X'))) 
 		return 1;
@@ -92,7 +92,7 @@ int X_O_Rule_Valid() {
 	return 0;
 }
 
-int X_O_Num_Valid() {
+int X_O_Num_inValid() {
 
 	if (Count_Num('O')> Count_Num('X')) 
 		return 1;
@@ -113,7 +113,7 @@ int main(void) {
 				cout << Answer[i] << endl;
 			return 0;
 		}
-		if (X_O_Num_Valid() || X_O_Rule_Valid()) {
+		if (X_O_Num_inValid() || X_O_Rule_inValid()) {
 
 			Answer.push_back("invalid");
 			Num_of_Test++;
