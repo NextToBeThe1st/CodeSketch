@@ -41,7 +41,11 @@ bool isValid(const string& board) {
     if (xWin && xCount != oCount + 1) return false;
 
     // O가 이겼다면 X, O 수 같아야 함
+<<<<<<< Updated upstream
     if (oWin && xCount != oCount) return false;
+=======
+    if (oWin && xCount != oCount) return false; //..
+>>>>>>> Stashed changes
 
     // 승리 없고, 9칸 다 찬 경우는 무승부
     if (!xWin && !oWin && xCount + oCount == 9) return true;
