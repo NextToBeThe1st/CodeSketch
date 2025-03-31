@@ -1,65 +1,65 @@
-#include <iostream>
+#include <string>
 #include <vector>
-#include <algorithm>
+#include <iostream>
+
+#define Sheep 0
+#define Wolf 1
 
 using namespace std;
 
-vector<int> Puddle_Start;
-vector<int> Puddle_End;
+int ADJ[20][20];
+int Node[20];
 
-int Num_Puddle;
-int Board_Length;
-int ResultCount = 0;
+int visited[1 << 17];
 
-void Input() {
+int sheep_count;
+int info_size;
 
-	Puddle_Start.resize(Num_Puddle);
-	Puddle_End.resize(Num_Puddle);
+void CountSheep(int state, int sheep, int wolf){
+    
+    if (sheep == wolf){
+        return;
+    }
+    if (visited[state]){
+        return;
+    }
+    visited[state] = true;
 
-	for (int i = 0; i < Num_Puddle; ++i) {
-		cin >> Puddle_Start[i] >> Puddle_End[i];
-	}
+    if (sheep > sheep_count){
+        sheep_count = sheep;
+    }
+
+    for (int i = 0; i < info_size; ++i){
+        
+        if (state & (1 << i)){
+            
+            for (int j = 0; j < info_size; ++j){
+                
+                if (ADJ[i][j] == 1 && !(state & (1 << j))){
+                    
+                    CountSheep(state | (1 << j), sheep + (Node[j] == Sheep), wolf + (Node[j] == Wolf));
+                }
+            }
+        }
+    }
 }
-void SortPuddle() {
 
-	sort(Puddle_Start.begin(), Puddle_Start.end());
-	sort(Puddle_End.begin(), Puddle_End.end());
-}
-void CountBoard() {
+int solution(vector<int> info, vector<vector<int>> edges){
+    
+    info_size = info.size();
+    sheep_count = 0;
 
-	int Position = Puddle_Start[0];
-	int CurrCount = 0;
+    for (int i = 0; i < info_size; ++i){
+        Node[i] = info[i];
+    }
 
-	for (int i = 0; i < Num_Puddle; ++i) {
+    for (int i = 0; i < edges.size(); ++i){
+        
+        ADJ[edges[i][0]][edges[i][1]] = 1;
+        ADJ[edges[i][1]][edges[i][0]] = 1;
+    }
 
-		CurrCount = 0;
+    CountSheep(1 << 0, 1, 0);
 
-		if (Position >= Puddle_End[i])
-			continue;
-
-		else if (Position <= Puddle_Start[i])
-			Position = Puddle_Start[i];
-
-		CurrCount += (Puddle_End[i] - Puddle_Start[i]) / Board_Length;
-		Position += (Board_Length * CurrCount);
-		//cout <<"본 루프 추가 pos" << Position << endl;
-
-		if (Position < Puddle_End[i]) {
-
-			CurrCount += 1;
-			Position += Board_Length;
-			//cout <<"나머지 추가 pos"<< Position << endl;
-		}
-		ResultCount += CurrCount;
-		//cout << ResultCount <<" " << Position << endl;
-	}
-}
-int main(void) {
-
-	cin >> Num_Puddle >> Board_Length;
-	Input();
-	SortPuddle();
-	CountBoard();
-
-	cout << ResultCount;
+    return sheep_count;
 }
