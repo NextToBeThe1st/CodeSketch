@@ -93,11 +93,9 @@ int solution(vector<string> maps) {
     Find_Pos(maps);
 
     int StoL = Find_Shortest(maps, Start, Lever);
-    if (StoL == 0) {
-        return -1;
-    }
     int LtoE = Find_Shortest(maps, Lever, Exit);
-    if (LtoE == 0) {
+    
+    if (StoL == 0 || LtoE == 0) {
         return -1;
     }
     return  StoL + LtoE;
