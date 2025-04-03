@@ -95,7 +95,7 @@ int solution(vector<string> maps) {
     int StoL = Find_Shortest(maps, Start, Lever);
     int LtoE = Find_Shortest(maps, Lever, Exit);
     
-    if (StoL == 0 || LtoE == 0) {
+    if ( !StoL || !LtoE ) {
         return -1;
     }
     return  StoL + LtoE;
